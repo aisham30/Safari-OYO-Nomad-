@@ -1,101 +1,74 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import Navbar from "@/components/nav/Navbar";
+import HeroSection from "@/components/hero/HeroSection";
+import ProductViewer from "@/components/3d/ProductViewer";
+import ExplodedView from "@/components/exploded/ExplodedView";
+import SpecsPanel from "@/components/specs/SpecsPanel";
+import TransformationSection from "@/components/transformation/TransformationSection";
+import SleepKitSection from "@/components/sleepkit/SleepKitSection";
+import NomadZoneSection from "@/components/zones/NomadZoneSection";
+import BookingDemo from "@/components/booking/BookingDemo";
+import BrandCollabSection from "@/components/brand/BrandCollabSection";
+import BusinessModel from "@/components/business/BusinessModel";
+import PersonasSection from "@/components/personas/PersonasSection";
+import JourneyTimeline from "@/components/journey/JourneyTimeline";
+import Footer from "@/components/footer/Footer";
+import PresentationMode from "@/components/presentation/PresentationMode";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [presentationOpen, setPresentationOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  return (
+    <main className="min-h-screen bg-[#171A1D] text-[#F5F3EE] selection:bg-[#EE2E35] selection:text-white">
+      {/* Fixed Navigation */}
+      <Navbar onOpenPresentation={() => setPresentationOpen(true)} />
+
+      {/* 1. Hero Section */}
+      <HeroSection onStartDemo={() => setPresentationOpen(true)} />
+
+      {/* 2. Interactive 3D Product Prototype (Central Experience) */}
+      <ProductViewer />
+
+      {/* 3. Exploded Product View */}
+      <ExplodedView />
+
+      {/* 4. Transformation Demonstration */}
+      <TransformationSection />
+
+      {/* 5. Technical Specifications Matrix */}
+      <SpecsPanel />
+
+      {/* 6. Nomad Sleep Kit */}
+      <SleepKitSection />
+
+      {/* 7. OYO Nomad Zones Location & Blueprint */}
+      <NomadZoneSection />
+
+      {/* 8. Booking App Prototype */}
+      <BookingDemo />
+
+      {/* 9. Brand Collaboration Synergy */}
+      <BrandCollabSection />
+
+      {/* 10. Business Model & Unit Economics Calculator */}
+      <BusinessModel />
+
+      {/* 11. Customer Personas */}
+      <PersonasSection />
+
+      {/* 12. Product Journey Timeline */}
+      <JourneyTimeline />
+
+      {/* 13. Footer with Formula Unicorn Competition Statements */}
+      <Footer />
+
+      {/* Full-Screen Competition Presentation Deck Mode */}
+      <PresentationMode
+        isOpen={presentationOpen}
+        onClose={() => setPresentationOpen(false)}
+      />
+    </main>
   );
 }
